@@ -32,5 +32,22 @@ export default (checkerShape: Dictionary<Checker<any, any>>) => toChecker({
   }) as Predicate<Dictionary<any>>,
   options: {
     name: 'literal object',
+    description(instanceDescription) {
+      const entries = Object.entries(checkerShape)
+
+      let description = entries.reduce((descriptionRows, [key, checker]) => {
+        let retDescriptionRows = [...descriptionRows]
+
+        retDescriptionRows = [...retDescriptionRows, `  - ${key}${!checker.required ? ' [optional]' : ''}: ${checker.name}`]
+        if (checker.description) {
+          const fieldDescription = checker.description.split('\n').map(row => `    ${row}`).join('\n')
+          retDescriptionRows = [...retDescriptionRows, fieldDescription]
+        }
+
+        return retDescriptionRows
+      }, instanceDescription ? [instanceDescription] : []).join('\n')
+
+      return description
+    }
   }
 })

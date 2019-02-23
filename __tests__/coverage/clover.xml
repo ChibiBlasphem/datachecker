@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1550936627296" clover="3.2.0">
-  <project timestamp="1550936627297" name="All files">
-    <metrics statements="86" coveredstatements="79" conditionals="52" coveredconditionals="45" methods="48" coveredmethods="45" elements="186" coveredelements="169" complexity="0" loc="86" ncloc="86" packages="2" files="12" classes="12"/>
+<coverage generated="1550937935255" clover="3.2.0">
+  <project timestamp="1550937935256" name="All files">
+    <metrics statements="95" coveredstatements="86" conditionals="58" coveredconditionals="49" methods="51" coveredmethods="47" elements="204" coveredelements="182" complexity="0" loc="95" ncloc="95" packages="2" files="12" classes="12"/>
     <package name="src">
       <metrics statements="38" coveredstatements="38" conditionals="30" coveredconditionals="30" methods="16" coveredmethods="16"/>
       <file name="create-checker.ts" path="/Users/chibikookie/projects/personal-projects/datachecker/src/create-checker.ts">
         <metrics statements="36" coveredstatements="36" conditionals="26" coveredconditionals="26" methods="14" coveredmethods="14"/>
         <line num="45" count="15" type="cond" truecount="2" falsecount="0"/>
-        <line num="49" count="104" type="stmt"/>
-        <line num="53" count="114" type="stmt"/>
-        <line num="62" count="114" type="stmt"/>
+        <line num="49" count="109" type="stmt"/>
+        <line num="53" count="119" type="stmt"/>
+        <line num="62" count="119" type="stmt"/>
         <line num="64" count="15" type="stmt"/>
-        <line num="67" count="11" type="stmt"/>
-        <line num="68" count="11" type="stmt"/>
+        <line num="67" count="12" type="stmt"/>
+        <line num="68" count="12" type="stmt"/>
         <line num="71" count="11" type="stmt"/>
         <line num="72" count="11" type="stmt"/>
-        <line num="75" count="19" type="stmt"/>
-        <line num="76" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="77" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="22" type="stmt"/>
+        <line num="76" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="22" type="cond" truecount="2" falsecount="0"/>
         <line num="78" count="1" type="stmt"/>
-        <line num="80" count="19" type="stmt"/>
-        <line num="83" count="12" type="stmt"/>
-        <line num="84" count="12" type="stmt"/>
-        <line num="86" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="90" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="91" count="3" type="stmt"/>
-        <line num="94" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="101" count="3" type="stmt"/>
+        <line num="80" count="22" type="stmt"/>
+        <line num="83" count="17" type="stmt"/>
+        <line num="84" count="17" type="stmt"/>
+        <line num="86" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="91" count="6" type="stmt"/>
+        <line num="94" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="101" count="6" type="stmt"/>
         <line num="104" count="3" type="stmt"/>
         <line num="107" count="1" type="stmt"/>
         <line num="110" count="7" type="stmt"/>
@@ -39,7 +39,7 @@
         <line num="127" count="90" type="cond" truecount="2" falsecount="0"/>
         <line num="128" count="63" type="stmt"/>
         <line num="136" count="27" type="stmt"/>
-        <line num="140" count="114" type="stmt"/>
+        <line num="140" count="119" type="stmt"/>
         <line num="144" count="130" type="cond" truecount="2" falsecount="0"/>
         <line num="145" count="110" type="cond" truecount="2" falsecount="0"/>
       </file>
@@ -50,7 +50,7 @@
       </file>
     </package>
     <package name="src.checkers">
-      <metrics statements="48" coveredstatements="41" conditionals="22" coveredconditionals="15" methods="32" coveredmethods="29"/>
+      <metrics statements="57" coveredstatements="48" conditionals="28" coveredconditionals="19" methods="35" coveredmethods="31"/>
       <file name="any.ts" path="/Users/chibikookie/projects/personal-projects/datachecker/src/checkers/any.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="6" type="stmt"/>
@@ -109,8 +109,8 @@
         <line num="13" count="2" type="stmt"/>
       </file>
       <file name="shape.ts" path="/Users/chibikookie/projects/personal-projects/datachecker/src/checkers/shape.ts">
-        <metrics statements="13" coveredstatements="10" conditionals="8" coveredconditionals="5" methods="5" coveredmethods="4"/>
-        <line num="4" count="7" type="stmt"/>
+        <metrics statements="22" coveredstatements="17" conditionals="14" coveredconditionals="9" methods="8" coveredmethods="6"/>
+        <line num="4" count="9" type="stmt"/>
         <line num="6" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
@@ -123,10 +123,19 @@
         <line num="22" count="1" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
       </file>
       <file name="string.ts" path="/Users/chibikookie/projects/personal-projects/datachecker/src/checkers/string.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="35" type="stmt"/>
+        <line num="3" count="38" type="stmt"/>
         <line num="4" count="19" type="stmt"/>
       </file>
     </package>
