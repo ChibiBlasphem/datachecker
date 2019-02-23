@@ -8,7 +8,7 @@ export type CheckerDescription<T, K = {}> = {
 
 type CheckerOptions<T extends Dictionary<any>> = {
   name: string | (() => string),
-  description?: string | ((customDescription: string) => string),
+  description?: string | ((instanceDescription: string) => string),
 } & T
 
 export type CheckError = {
@@ -23,19 +23,22 @@ type BaseChecker<T, K = {}> = {
   nullable: boolean,
   name: string,
   options: CheckerOptions<K>,
-  description: string,
 }
 
 type InternalChecker<T, K = {}> = BaseChecker<T, K> & {
   predicate: Predicate<T>,
+  description: CheckerInstanceDescription<T, K>,
 }
+
+type CheckerInstanceDescription<T, K> = string | ((checker: Checker<T, K>) => string)
 
 export type Checker<T, K = {}> = BaseChecker<T, K> & {
   $$typeof: string,
   isRequired: Checker<T, K>,
   isNullable: Checker<T, K>,
-  setDescription(description: string): Checker<T, K>,
+  setDescription(description: CheckerInstanceDescription<T, K>): Checker<T, K>,
   check(value: any): true | CheckError[],
+  description: string,
 }
 
 export function isChecker<T>(value: any): value is Checker<T> {
@@ -77,7 +80,22 @@ export function createChecker<T, K>(predicate: Predicate<T>, options: CheckerOpt
       return retName
     },
     get description() {
-      return ''
+      const { description: checkerDescription } = internalChecker.options
+      const { description: instanceDescription } = internalChecker
+
+      const instanceDescriptionValue = typeof instanceDescription === 'function'
+        ? instanceDescription(checker)
+        : instanceDescription
+
+      if (!checkerDescription) {
+        return instanceDescriptionValue
+      }
+
+      return typeof checkerDescription === 'function'
+        ? checkerDescription(instanceDescriptionValue)
+        : (instanceDescriptionValue
+          ? `${checkerDescription}\n${instanceDescriptionValue}`
+          : checkerDescription)
     },
     get required() {
       return internalChecker.required

@@ -2,8 +2,6 @@ import checkerDescriptions from './checkers'
 import { isChecker, Checker, CheckError, Dictionary } from './create-checker'
 import { isLiteralObject } from './utils';
 
-const anyChecker = checkerDescriptions.any()
-
 const DataChecker = {
   get string() {
     return checkerDescriptions.string()
@@ -25,7 +23,7 @@ const DataChecker = {
     return checkerDescriptions.oneof(...typeCheckers)
   },
 
-  array(typeChecker: Checker<any, any> = anyChecker) {
+  array(typeChecker: Checker<any, any> = checkerDescriptions.any()) {
     return checkerDescriptions.array(typeChecker)
   },
 
@@ -37,7 +35,7 @@ const DataChecker = {
     return checkerDescriptions.shape(checkerShape)
   },
 
-  dictionary(typeChecker: Checker<any, any> = anyChecker) {
+  dictionary(typeChecker: Checker<any, any> = checkerDescriptions.any()) {
     return checkerDescriptions.dictionary(typeChecker)
   },
 
