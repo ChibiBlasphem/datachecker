@@ -1,5 +1,5 @@
 import checkerDescriptions from './checkers'
-import { isChecker, Checker, CheckError, Dictionary } from './create-checker'
+import { createChecker, composeCheckers, isChecker, Checker, AnyChecker, CheckError, Dictionary, Predicate, AnyPredicate, CheckerDescription } from './create-checker'
 import { isLiteralObject } from './utils';
 
 const DataChecker = {
@@ -95,3 +95,14 @@ const DataChecker = {
 }
 
 export default DataChecker
+export {
+  createChecker,
+  composeCheckers,
+  Checker,
+  AnyChecker,
+  CheckError,
+  Dictionary,
+  Predicate,
+  AnyPredicate,
+  CheckerDescription
+}

@@ -1,5 +1,6 @@
 export type Dictionary<T> = { [k:string]: T }
-export type Predicate<T> = (checker: Checker<any>, value: any) => boolean | CheckError[]
+export type Predicate<T> = (checker: AnyChecker, value: any) => boolean | CheckError[]
+export type AnyPredicate = Predicate<any>
 
 export type CheckerDescription<T, K = {}> = {
   predicate: Predicate<T>,
@@ -15,7 +16,7 @@ export type CheckError = {
   key: string,
   message: string,
   value: any,
-  checker?: Checker<any>,
+  checker?: AnyChecker,
 }
 
 type BaseChecker<T, K = {}> = {
@@ -39,14 +40,28 @@ export type Checker<T, K = {}> = BaseChecker<T, K> & {
   setDescription(description: CheckerInstanceDescription<T, K>): Checker<T, K>,
   check(value: any): true | CheckError[],
   description: string,
+  predicate: Predicate<T>
 }
 
-export function isChecker<T>(value: any): value is Checker<T> {
+export type AnyChecker = Checker<any, any>
+
+export function isChecker(value: any): value is AnyChecker {
   return value && value.$$typeof === 'checker'
 }
 
 export function toChecker<T, K>(checkerDescription: CheckerDescription<T, K>): Checker<T, K> {
   return createChecker(checkerDescription.predicate, checkerDescription.options)
+}
+
+export function composeCheckers<K>(checkers: (AnyChecker | AnyPredicate)[], options: CheckerOptions<K>): () => Checker<any, K> {
+  const predicate = (checker: Checker<any, K>, value: any) => {
+    for (let innerChecker of checkers) {
+      const innerRes = isChecker(innerChecker) ? innerChecker.predicate(checker, value) : innerChecker(checker, value)
+      if (innerRes !== true) return innerRes
+    }
+    return true
+  }
+  return () => createChecker(predicate, options)
 }
 
 export function createChecker<T, K>(predicate: Predicate<T>, options: CheckerOptions<K>): Checker<T, K> {
@@ -96,6 +111,9 @@ export function createChecker<T, K>(predicate: Predicate<T>, options: CheckerOpt
         : (instanceDescriptionValue
           ? `${checkerDescription}\n${instanceDescriptionValue}`
           : checkerDescription)
+    },
+    get predicate() {
+      return internalChecker.predicate
     },
     get required() {
       return internalChecker.required

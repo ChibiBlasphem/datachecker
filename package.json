@@ -3,7 +3,7 @@
   "description": "Datachecker lets you check your data against a model of data",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib --extensions '.ts'",
+    "build": "tsc",
     "test": "jest",
     "test-coverage": "jest --coverage"
   },
@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.3.3",
     "@types/jest": "^24.0.6",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "typescript": "^3.3.3333"
   }
 }
