@@ -1,0 +1,33 @@
+{
+  "name": "datachecker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib --extensions '.ts'",
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
+  "files": [
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChibiBlasphem/datachecker.git"
+  },
+  "keywords": [],
+  "author": "ChibiBlasphem <chibiblasphem@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChibiBlasphem/datachecker/issues"
+  },
+  "homepage": "https://github.com/ChibiBlasphem/datachecker#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.6",
+    "jest": "^24.1.0"
+  }
+}
