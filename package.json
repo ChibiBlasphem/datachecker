@@ -1,5 +1,5 @@
 {
-  "name": "datachecker",
+  "name": "@chibikookie/datachecker",
   "description": "Datachecker lets you check your data against a model of data",
   "main": "lib/index.js",
   "scripts": {
