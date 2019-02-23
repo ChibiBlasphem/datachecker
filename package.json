@@ -1,7 +1,6 @@
 {
   "name": "datachecker",
-  "version": "1.0.0",
-  "description": "",
+  "description": "Datachecker lets you check your data against a model of data",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --extensions '.ts'",
