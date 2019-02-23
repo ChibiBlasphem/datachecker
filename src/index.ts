@@ -46,15 +46,12 @@ const DataChecker = {
 
     let errors: CheckError[] = []
 
-    if (!isLiteralObject(value)) {
-      return [{
-        key: '',
-        message: 'none',
-        value
-      }]
+    if (!isLiteralObject(typeOrObject)) {
+      throw 'checker must be a checker or checker shape'
     }
-
-    return errors.length > 0 ? errors : true
+    
+    const shapeChecker = checkerDescriptions.shape(typeOrObject).isRequired
+    return shapeChecker.check(value)
   },
 
   formatError(withDescription: boolean = false, { message, checker, key, value }: CheckError) {

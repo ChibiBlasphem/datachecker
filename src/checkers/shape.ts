@@ -13,7 +13,7 @@ export default (checkerShape: Dictionary<Checker<any, any>>) => toChecker({
       
       return [
         ...errors,
-        ...res.map(error => ({ ...error, key: `${key}.${error.key}` }))
+        ...res.map(error => ({ ...error, key: `.${key}${error.key}` }))
       ]
     }, errors)
 
